@@ -1,0 +1,83 @@
+.elements {
+    display: flex;
+    margin: 0 auto;
+    max-width: 882px;
+    flex-wrap: wrap;
+    gap: 20px 18px;
+  }
+  .elements__card {
+    border-radius: 10px;
+    margin: 0;
+    max-width: 282px;
+    position: relative;
+    background-color: #ffffff;
+  }
+  .elements__image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 282px;
+    height: 282px;
+  }
+  .elements__image-delete-btn {
+    background-image: url(../images/trash-button.png);
+    width: 18px;
+    height: 19.3px;
+    border: 0;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+  }
+  .elements__image-delete-btn:hover {
+    opacity: 60%;
+  }
+  .elements__image-like-btn {
+    background-image: url(../images/like-button.png);
+    background-repeat: no-repeat;
+    border: 0;
+    width: 21px;
+    height: 35px;
+    background-color: transparent;
+    padding: 0px;
+  }
+  .elements__image-like-btn:hover {
+    opacity: 50%;
+  }
+  
+  .elements__image-like-btn-active {
+    background-image: url(../images/like-btn-active.png);
+  }
+  
+  .elements__image-description {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 21px 15px 31px 21px;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .elements__image-description-title {
+    max-width: 225px;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .elements__counter {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 20px 0 0 0;
+  }
+  
+  @media screen and (max-width: 881px) {
+    .elements {
+      justify-content: center;
+    }
+  }
+  
