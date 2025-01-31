@@ -30,5 +30,6 @@ Se escogió Google Cloud como servidor.
 Para los redireccionamientos internos del puerto 3000 se usa Nginx.
 
 Se utiliza pm2 para su ejecucion.
+https://www.ogg.deltako.com/
 
 Diego Ocegueda
