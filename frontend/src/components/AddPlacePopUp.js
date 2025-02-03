@@ -1,7 +1,7 @@
 import React from "react";
 import PopUpWithForm from "./PopUpWithForm";
 
-export default function AddPlacePopUp({ open, handleClose, onSubmit }) {
+export default function AddPlacePopup({ open, handleClose, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(getInputValues(event.target));
