@@ -1,4 +1,4 @@
-export const BASE_URL = "https://se-register-api.en.tripleten-services.com/v1";
+export const BASE_URL = "https://api.ogg.deltako.com";
 
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -48,7 +48,7 @@ export const checkToken = (token) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     },
   })
     .then((res) => {

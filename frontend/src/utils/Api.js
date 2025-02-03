@@ -1,13 +1,13 @@
 class Api {
-  constructor(url, token) {
+  constructor(url) {
     this._url = url;
-    this._token = token;
+    this._token = localStorage.getItem("jwt");
   }
 
   async getUserInfo() {
     const res = await fetch(`${this._url}users/me`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
       },
       method: "GET",
     });
@@ -17,7 +17,7 @@ class Api {
   async getCards() {
     const res = await fetch(`${this._url}cards`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
       },
       method: "GET",
     });
@@ -27,7 +27,7 @@ class Api {
   async updateUser(name, about) {
     const res = await fetch(`${this._url}users/me`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -39,7 +39,7 @@ class Api {
   async postCards(name, link) {
     const res = await fetch(`${this._url}cards`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -51,7 +51,7 @@ class Api {
   async deleteCard(cardId) {
     const res = await fetch(`${this._url}cards/${cardId}`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "DELETE",
@@ -62,7 +62,7 @@ class Api {
   async deleteLike(cardId) {
     const res = await fetch(`${this._url}cards/likes/${cardId}`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "DELETE",
@@ -73,7 +73,7 @@ class Api {
   async like(cardId) {
     const res = await fetch(`${this._url}cards/likes/${cardId}`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "PUT",
@@ -84,7 +84,7 @@ class Api {
   async updateAvatar(avatar) {
     const res = await fetch(`${this._url}users/me/avatar`, {
       headers: {
-        authorization: this._token,
+        authorization: this._token || localStorage.getItem("jwt"),
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -94,9 +94,6 @@ class Api {
   }
 }
 
-const api = new Api(
-  "https://around.nomoreparties.co/v1/web_es_11/",
-  "5e4cb8fc-f582-4c98-9594-60e83a5ed625"
-);
+const api = new Api("https://api.ogg.deltako.com");
 
 export default api;
