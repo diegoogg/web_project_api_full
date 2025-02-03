@@ -34,7 +34,6 @@ export default function AddPlacePopUp({ open, handleClose, onSubmit }) {
         required
         minLength="2"
         maxLength="30"
-        onChange={(e) => setName(e.target.value)}
         name="name"
       />
       <span className="popup__error popup__error_type_place"></span>
@@ -43,7 +42,6 @@ export default function AddPlacePopUp({ open, handleClose, onSubmit }) {
         placeholder="Enlace a la imagen"
         className="popup__input popup__input_src"
         required
-        onChange={(e) => setLink(e.target.value)}
         name="link"
       />
       <span className="popup__error popup__error_type_url"></span>
