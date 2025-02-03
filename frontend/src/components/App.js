@@ -211,7 +211,7 @@ function App() {
             <AddPlacePopUp
               handleClose={closeAllPopups}
               open={isPopupAddPlace}
-              onSubmitAddPlace={onSubmitAddPlace}
+              onSubmit={onSubmitAddPlace}
             />
             <PopUpWithForm
               title="Estas seguro?"
