@@ -19,7 +19,7 @@ export default function Card({
   };
 
   const cardOwner = () => {
-    return owner._id === user._id;
+    return owner === user._id;
   };
 
   const handleClick = () => {
