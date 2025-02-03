@@ -1,4 +1,3 @@
-import React from "react";
 import PopUpWithForm from "./PopUpWithForm";
 
 export default function AddPlacePopup({ open, handleClose, onSubmit }) {
