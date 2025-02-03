@@ -135,7 +135,7 @@ function App() {
 
   React.useEffect(() => {
     tokenCheck();
-  }, []);
+  }, [history.push]);
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
