@@ -2,14 +2,21 @@ import React from "react";
 import PopUpWithForm from "./PopUpWithForm";
 
 export default function AddPlacePopUp({ open, handleClose, onSubmitAddPlace }) {
-  const [name, setName] = React.useState("");
-  const [link, setLink] = React.useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(getInputValues(event.target));
+  };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    onSubmitAddPlace({ name, link });
-  }
+  const getInputValues = (form) => {
+    const inputValues = {};
+    const inputForms = Array.from(form.elements);
+    inputForms.forEach((element) => {
+      if (element.name) {
+        inputValues[element.name] = element.value;
+      }
+    });
+    return inputValues;
+  };
 
   return (
     <PopUpWithForm
