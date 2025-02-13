@@ -94,9 +94,6 @@ class Api {
   }
 }
 
-const api = new Api(
-  "https://around.nomoreparties.co/v1/web_es_11/",
-  "5e4cb8fc-f582-4c98-9594-60e83a5ed625"
-);
+const api = new Api("https://api.ogg.deltako.com");
 
 export default api;
