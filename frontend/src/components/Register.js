@@ -19,12 +19,13 @@ export default function Register() {
         .register(email, password)
         .then((res) => {
           console.log(res, res._id);
-          if (!res.data._id) {
+          if (!res._id) {
             setIsSuccess(false);
-          } else {
-            setIsSuccess(true);
           }
           setOpen(true);
+          setTimeout(() => {
+            history.push("/login");
+          }, 3000);
         })
         .catch((error) => {
           console.log(error);

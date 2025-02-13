@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as auth from "../utils/auth";
 import "../blocks/login.css";
+import api from "../utils/Api.js";
 
 export default function Login({ setIsLoggedIn, email, setEmail }) {
   const [password, setPassword] = useState("");
@@ -18,6 +19,7 @@ export default function Login({ setIsLoggedIn, email, setEmail }) {
         console.log("token", res);
         if (res.token) {
           localStorage.setItem("jwt", res.token);
+          api.setToken(res.token);
           setIsLoggedIn(true);
           history.push("/home");
         }
