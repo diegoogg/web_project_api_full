@@ -1,7 +1,11 @@
 class Api {
   constructor(url) {
     this._url = url;
-    this._token = localStorage.getItem("jwt");
+    this._token = "Bearer " + localStorage.getItem("jwt");
+  }
+
+  setToken(token) {
+    this._token = "Bearer " + token;
   }
 
   async getUserInfo() {
@@ -94,6 +98,6 @@ class Api {
   }
 }
 
-const api = new Api("https://api.ogg.deltako.com");
+const api = new Api("https://api.ogg.deltako.com/");
 
 export default api;

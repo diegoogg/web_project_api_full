@@ -1,10 +1,8 @@
-export const { NODE_ENV, JWT_SECRET } = process.env;
-export const token = jwt.sign(
-  { _id: user._id },
-  NODE_ENV === "production" ? JWT_SECRET : "loquesea"
-);
+const jwt = require("jsonwebtoken");
 
-export const allowedOrigins = [
+const { NODE_ENV, JWT_SECRET } = process.env;
+
+const allowedOrigins = [
   "http://ogg.deltako.com",
   "http://www.ogg.deltako.com",
   "https://ogg.deltako.com",
@@ -12,3 +10,5 @@ export const allowedOrigins = [
   "http://localhost:3000",
   "https://localhost:3000",
 ];
+
+module.exports = { NODE_ENV, JWT_SECRET, allowedOrigins, token };

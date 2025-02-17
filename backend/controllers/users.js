@@ -1,16 +1,16 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const UserInfo = require('../models/user');
-const handleError = require('../utils/HandleError');
-require('dotenv').config();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const UserInfo = require("../models/user");
+const handleError = require("../utils/HandleError");
+require("dotenv").config();
 
-const { NOVE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const allUsers = (req, res) => {
   UserInfo.find({}),
-  then((user) => {
-    res.send(user);
-  });
+    then((user) => {
+      res.send(user);
+    });
 };
 
 const getUser = (req, res) => {
@@ -26,10 +26,12 @@ const createUser = (req, res) => {
   const { email, password } = req.body;
   bcrypt
     .hash(password, 10)
-    .then((hash) => UserInfo.create({
-      email,
-      password: hash,
-    }))
+    .then((hash) =>
+      UserInfo.create({
+        email,
+        password: hash,
+      })
+    )
     .then((user) => {
       res.status(201).send({
         _id: user._id,
@@ -45,9 +47,9 @@ const login = (req, res) => {
   const { email, password } = req.body;
   return UserInfo.findUserByCredentials(email, password)
     .then((user) => {
-      const secretWord = NODE_ENV === 'production' ? JWT_SECRET : 'loquesea';
+      const secretWord = NODE_ENV === "production" ? JWT_SECRET : "loquesea";
       const token = jwt.sign({ _id: user._id }, secretWord, {
-        expiresIn: '7d',
+        expiresIn: "7d",
       });
       res.send({ token });
     })
